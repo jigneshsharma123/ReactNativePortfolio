@@ -6,9 +6,9 @@ const ProjectsScreen = () => {
     const translateYAnim = useRef(new Animated.Value(50)).current;
 
     const projects = [
-        { id: '1', title: 'NativeTHandler', description: 'NativeTHandler is a android application which allow a user to add the new task and perform the CURD operation on it.', githubLink: 'https://github.com/username/NativeTHandler' },
-        { id: '2', title: 'BharatNews', description: 'NewsPaperApp is a Android Application which mimic like a traditional NewsPaper having feature Search Articles, Articles Details and Filter the content', githubLink: 'https://github.com/username/BharatNews' },
-        { id: '3', title: 'FireStock', description: 'FireStock is a Web Application that is designed in a way that the user can upload the image on it.', githubLink: 'https://github.com/username/FireStock' }
+        { id: '1', title: 'NativeTHandler', description: 'NativeTHandler is a android application which allow a user to add the new task and perform the CURD operation on it.', githubLink: 'https://github.com/jigneshsharma123/ReactTodo' },
+        { id: '2', title: 'BharatNews', description: 'NewsPaperApp is a Android Application which mimic like a traditional NewsPaper having feature Search Articles, Articles Details and Filter the content', githubLink: 'https://github.com/jigneshsharma123/NewAppReactNative' },
+        { id: '3', title: 'FireStock', description: 'FireStock is a Web Application that is designed in a way that the user can upload the image on it.', githubLink: 'https://github.com/jigneshsharma123/fireStockReactApp' }
     ];
 
     const renderProject = ({ item }) => (
@@ -20,12 +20,10 @@ const ProjectsScreen = () => {
     );
 
     const handleGitHubPress = (githubLink) => {
-        // Open the GitHub link associated with the project
         Linking.openURL(githubLink);
     };
 
     useEffect(() => {
-        // Start animation when the component mounts
         Animated.stagger(100, [
             Animated.timing( // Animate opacity
                 opacityAnim,
@@ -57,6 +55,22 @@ const ProjectsScreen = () => {
                 contentContainerStyle={styles.projectList}
                 showsVerticalScrollIndicator={false}
             />
+            <SkillSection />
+        </View>
+    );
+};
+
+const SkillSection = () => {
+    const skills = ['React', 'React Native', 'JavaScript', 'HTML', 'CSS', 'Node.js', 'Express.js', 'MongoDB', 'Firebase', 'Git', 'mongoose', 'JavaScript', 'DSA', 'SQL', 'CRON'];
+
+    return (
+        <View style={styles.skillSectionContainer}>
+            <Text style={styles.skillSectionTitle}>Skills</Text>
+            <View style={styles.skillTagsContainer}>
+                {skills.map((skill, index) => (
+                    <Text key={index} style={styles.skillTag}>{skill}</Text>
+                ))}
+            </View>
         </View>
     );
 };
@@ -68,14 +82,14 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'center',
         paddingHorizontal: 20,
-        marginTop : 38
+        marginTop: 38
     },
     heading: {
         fontSize: 24,
         fontWeight: 'bold',
         color: 'white',
         marginBottom: 20,
-        marginTop : 15
+        marginTop: 15
     },
     projectList: {
         alignItems: 'center',
@@ -99,7 +113,29 @@ const styles = StyleSheet.create({
     projectTitle: {
         fontSize: 18,
         fontWeight: 'bold',
+        marginBottom: 10
+    },
+    skillSectionContainer: {
+        marginTop: 20,
+        alignItems: 'flex-start',
+    },
+    skillSectionTitle: {
+        fontSize: 20,
+        fontWeight: 'bold',
         marginBottom: 10,
+        color: 'white',
+    },
+    skillTagsContainer: {
+        flexDirection: 'row',
+        flexWrap: 'wrap',
+        borderRadius: 5
+    },
+    skillTag: {
+        paddingHorizontal: 10,
+        paddingVertical: 5,
+        borderRadius: 15,
+        margin: 5,
+        color: 'white',
     },
 });
 

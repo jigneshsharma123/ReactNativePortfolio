@@ -57,7 +57,7 @@ const HomeScreen = ({ navigation }) => {
                         startAnimation();
                         navigation.navigate('Projects');
                     }}>
-                    <Text style={styles.buttonText}>Projects</Text>
+                    <Text style={styles.buttonText}>Projects & skills</Text>
                 </TouchableOpacity>
                 <TouchableOpacity
                     style={buttonStyle}
